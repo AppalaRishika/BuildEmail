@@ -1,0 +1,27 @@
+form li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+form ul li label {
+list-style-type: none;
+  float: left;
+  clear: left;
+  width: 100px;
+  text-align: right;
+  margin-right: 10px;
+  font-size: 14px;
+  font-family: arial, sans-serif;
+}
+
+form ul li input,
+select,
+span {
+  float: left;
+  margin-bottom: 10px;
+}
+form textarea {
+  float: left;
+  width: 700px;
+  height: 300px;
+}

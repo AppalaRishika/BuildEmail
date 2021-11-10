@@ -1,0 +1,19 @@
+<ng-container *ngFor="let item of list">
+  <div class="detailsDescription">
+    <div>
+      <h6>From:</h6>
+      <p>{{ item.email }}</p>
+    </div>
+    <div>
+      <h6>Subject:</h6>
+      <p>{{ item.subject }}</p>
+    </div>
+    <div>
+      <h6>Details:</h6>
+      <p>{{ item.details }}</p>
+    </div>
+    <div>
+      <button routerLink="/landing-page" class="btn btn-primary">Back</button>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,90 @@
+<div class="navbar navbar-dark bg-primary shadow-sm">
+  <div class="navbar-brand align-item-center d-flex">
+    <strong style="font-size: 30px">Gmail</strong>
+    <div class="form-group">
+      <input type="text" class="form-control" (keyup)="search($event)" placeholder="search email" />
+    </div>
+    <div class="search-icon">
+      <i class="fa fa-search"></i>
+    </div>
+  </div>
+  <div class="item">
+    <button routerLink="/login" class="btn btn-primary">
+      <img
+        src="https://previews.123rf.com/images/alekseyvanin/alekseyvanin1711/alekseyvanin171101408/89963619-email-user-icon-vector-filled-flat-sign-solid-pictogram-isolated-on-white-account-adress-symbol-logo.jpg"
+        alt=""
+      />
+      <h6>Logout</h6>
+    </button>
+  </div>
+</div>
+<div class="card-top container-fluid">
+  <div class="container d-flex">
+    <div class="item">
+      <a (click)="filter('')">
+        <img
+          src="https://b.kisscc0.com/20180817/esq/kisscc0-computer-icons-email-bounce-address-letter-image-f-primary-template-envelopec6-5b770d3f9e0854.5962611315345288316473.png"
+          alt=""
+        />
+        <h6>Primary</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a (click)="filter('social')">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS3RgvyJxPOUZ_66P4y-UbMs8MoQBvUJ8esldMCZUDhwO4JQnTw-bW6XTy24GB5Plb23E&usqp=CAU"
+          alt=""
+        />
+        <h6>Social</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a (click)="filter('promotions')">
+        <img
+          src="https://cdn3.iconfinder.com/data/icons/seo-marketing-41/64/x-25-1024.png"
+          alt=""
+        />
+        <h6>Promotions</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a routerLink="/compose">
+        <img
+          src="http://4.bp.blogspot.com/-ZSSnkqOLTvk/VGFb2CG3h7I/AAAAAAAAEY4/qXQ2Ws2yUQQ/s200/floating%2Bred%2Bcompose%2Bbutton%2Bin%2BGmail%2Bapp%2Bin%2BGalaxy%2BS5.png"
+          alt=""
+        />
+        <h6>Compose</h6>
+      </a>
+    </div>
+    <div class="item">
+      <a routerLink="/draft">
+        <img
+          src="https://cdn2.vectorstock.com/i/1000x1000/96/86/draft-mail-icon-email-icon-with-long-shadow-vector-19709686.jpg"
+          alt=""
+        />
+        <h6>Draft</h6>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let item of filterCategory | email:searchEmail:'senderEmail'">
+      <div class="list">
+        <table class="table">
+          <tr (click)="viewEmailDetails(item)">
+            <td>
+              <h5>{{ item.senderEmail }}</h5>
+            </td>
+            <td>
+              <p>{{ item.subject }}</p>
+            </td>
+            <td>
+              <button (click)="removeEmail(item.senderEmail)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </ng-container>
+  </div>
+</div>

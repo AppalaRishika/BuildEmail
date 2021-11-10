@@ -1,0 +1,28 @@
+<h2>Compose</h2>
+
+<form [formGroup]="composeForm">
+  <div class="form-group">
+    <ul>
+      <li><label for="email">Send to:</label></li>
+      <li><input type="email" formControlName="email" /></li>
+      <li>
+        <span
+          class="text-danger"
+          *ngIf="
+            composeForm.controls.email.errors &&
+            composeForm.controls.email.touched
+          "
+          ><br />Invalid Email Address
+        </span>
+      </li>
+      <li><label for="subject">Subject:</label></li>
+      <li><input type="text" formControlName="subject" /></li>
+      <li><label for="details">Mail:</label></li>
+      <li><textarea formControlName="details" ></textarea></li>
+      <i class="fa fa-close" (click)="storeDetails()" style="font-size:48px;color:red"></i>
+      <li><label for="button"></label></li>
+      <li><button>Send</button>
+      <button routerLink='/landing-page'>Back</button></li>
+    </ul>
+  </div>
+</form>

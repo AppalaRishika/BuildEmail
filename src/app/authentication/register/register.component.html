@@ -1,0 +1,123 @@
+<div class="appContainer">
+  <div class="row align-items-center h-100">
+    <div class="col-md-5 col-sm-10 mx-auto">
+      <div class="cardStyle" class="card justify-content-center">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <form [formGroup]="registeredForm">
+                <div class="form-group">
+                  <label for="firstName" class="fa fa-user"></label>
+                  <input
+                    type="text"
+                    placeholder="Enter Your First Name"
+                    formControlName="firstName"
+                  />
+                  <span
+                    class="text-danger"
+                    *ngIf="
+                      registeredForm.controls.firstName.errors &&
+                      registeredForm.controls.firstName.touched
+                    "
+                  >
+                    <br />First Name is Required
+                  </span>
+                </div>
+                <div class="form-group">
+                  <label for="lastName" class="fa fa-user"></label>
+                  <input
+                    type="text"
+                    placeholder="Enter Your Last Name"
+                    formControlName="lastName"
+                  />
+                  <span
+                    class="text-danger"
+                    *ngIf="
+                      registeredForm.controls.lastName.errors &&
+                      registeredForm.controls.lastName.touched
+                    "
+                  >
+                    <br />Last Name is Required
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="userName" class="fa fa-user"></label>
+                  <input
+                    type="text"
+                    placeholder="Enter Your User Name"
+                    formControlName="userName"
+                  />
+                  <span
+                    class="text-danger"
+                    *ngIf="
+                      registeredForm.controls.userName.errors &&
+                      registeredForm.controls.userName.touched
+                    "
+                  >
+                    <br />User Name is Required
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="fa fa-envelope"></label>
+                  <input
+                    type="email"
+                    placeholder="Email Address"
+                    formControlName="email"
+                  />
+                  <span
+                    class="text-danger"
+                    *ngIf="
+                      registeredForm.controls.email.errors &&
+                      registeredForm.controls.email.touched
+                    "
+                  >
+                    <br />Invalid Email Address
+                  </span>
+                </div>
+
+                <div class="form-group">
+                  <label for="password" class="fa fa-lock"></label>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    formControlName="password"
+                  />
+                  <span
+                    class="text-danger"
+                    *ngIf="
+                      registeredForm.controls.password.errors &&
+                      registeredForm.controls.password.touched
+                    "
+                  >
+                    <br />Atleast 6 character Password is Required
+                  </span>
+                </div>
+
+                <div class="text-center">
+                  <button
+                    (click)="onRegister()"
+                    id="submitButton"
+                    type="submit"
+                    class="btn btn-primary"
+                    [disabled]="!registeredForm.valid"
+                  >
+                    Register
+                  </button>
+                  <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+                </div>
+
+                <div class="text-success" *ngIf="successMessage">
+                  {{ registeredForm.value.email }} mail Id is
+                  {{ successMessage }}
+                </div>
+               
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

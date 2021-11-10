@@ -1,0 +1,19 @@
+<ng-container *ngIf="listofEmail">
+  <div class="detailsDescription">
+    <div>
+      <h6>From:</h6>
+      <p>{{ listofEmail.senderEmail }}</p>
+    </div>
+    <div>
+      <h6>Subject:</h6>
+      <p>{{ listofEmail.subject }}</p>
+    </div>
+    <div>
+      <h6>Details:</h6>
+      <p>{{ listofEmail.details }}</p>
+    </div>
+    <div>
+      <button routerLink="/landing-page" class="btn btn-primary">Back</button>
+    </div>
+  </div>
+</ng-container>
