@@ -10,6 +10,6 @@ export class AppComponent {
   flag: boolean = true;
 
   apply(value: string) {
-    this.flag = value == 'login' ? true : false;
+    this.flag = value == 'login';
   }
 }

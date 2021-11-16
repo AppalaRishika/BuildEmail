@@ -9,11 +9,9 @@ import { UsersList } from 'src/app/landing-page/landing-page.component';
 })
 export class LoginComponent implements OnInit {
   successMessage: string = '';
-  loginForm!: FormGroup;
-  userList: UsersList[] = JSON.parse(localStorage.getItem('users') || '{}');
-  constructor(private fb: FormBuilder, private router: Router) {}
-
-  ngOnInit(): void {
+  loginForm: FormGroup;
+  userList: UsersList[] = JSON.parse(localStorage.getItem('users') || '[]');
+  constructor(private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       email: [
         '',
@@ -22,6 +20,8 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
+
+  ngOnInit(): void {}
   onLogin() {
     const loginFormDetails = this.loginForm.getRawValue();
     const user = this.userList.find(

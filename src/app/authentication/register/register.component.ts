@@ -7,8 +7,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  successMessage: string = '';
-  userList: UsersList[] = JSON.parse(localStorage.getItem('users') || '{}');
+  message: string = '';
+  userList: UsersList[] = JSON.parse(localStorage.getItem('users') || '[]');
   registeredForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}
@@ -31,10 +31,10 @@ export class RegisterComponent implements OnInit {
       (obj) => obj.email == registerFormDetails.email
     );
     if (user) {
-      this.successMessage = 'Duplicate user';
+      this.message = 'Duplicate user';
     } else {
       this.userList.push(registerFormDetails);
-      this.successMessage = 'Successfully Registered...';
+      this.message = 'Successfully Registered...';
       localStorage.setItem('users', JSON.stringify(this.userList));
     }
   }

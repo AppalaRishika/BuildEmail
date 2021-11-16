@@ -108,11 +108,10 @@
                   <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
                 </div>
 
-                <div class="text-success" *ngIf="successMessage">
+                <div class="text-success" *ngIf="message">
                   {{ registeredForm.value.email }} mail Id is
-                  {{ successMessage }}
+                  {{ message }}
                 </div>
-               
               </form>
             </div>
           </div>

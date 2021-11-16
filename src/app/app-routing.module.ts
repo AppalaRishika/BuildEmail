@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'landing-page', component: LandingPageComponent },
   { path: 'details-page', component: DetailsPageComponent },
   { path: 'compose', component: ComposeComponent },
-  {path:'draft',component:DraftComponent},
+  { path: 'draft', component: DraftComponent },
 ];
 
 @NgModule({

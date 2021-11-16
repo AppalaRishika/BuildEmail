@@ -7,19 +7,18 @@ import { EmailService, ListofEmails } from '../email.service';
   styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
-  userList: UsersList[] = JSON.parse(localStorage.getItem('users') || '{}');
+  userList: UsersList[] = JSON.parse(localStorage.getItem('users') || '[]');
   emailList: ListofEmails[] = [];
-  searchEmail:string="";
-  filterCategory: any;
+  searchEmail: string = '';
+  filterCategory: ListofEmails[] = [];
   constructor(private router: Router, private emailService: EmailService) {}
   ngOnInit(): void {
-    this.emailService.getEmails().subscribe(data=>{
-      this.emailList=data;
-      this.filterCategory=this.emailList;
+    this.emailService.getEmails().subscribe((data) => {
+      this.emailList = data;
+      this.filterCategory = this.emailList;
     });
-    
   }
-  search(event:any){
+  search(event: any) {
     this.searchEmail = (event.target as HTMLInputElement).value;
   }
   filter(category: string) {
@@ -29,12 +28,14 @@ export class LandingPageComponent implements OnInit {
       }
     });
   }
-  viewEmailDetails(item:any){
+  viewEmailDetails(item: any) {
     this.router.navigateByUrl('/details-page', { state: item });
   }
-  removeEmail(checkEmail:string){  
-    this.filterCategory = this.filterCategory.filter((a:any) => a.senderEmail!== checkEmail); 
-  }  
+  removeEmail(checkEmail: string) {
+    this.filterCategory = this.filterCategory.filter(
+      (a: any) => a.senderEmail !== checkEmail
+    );
+  }
 }
 export interface UsersList {
   firstName: string;
